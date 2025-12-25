@@ -1,0 +1,57 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Model;
+import java.util.ArrayList;
+import java.util.Queue;
+
+
+/**
+ *
+ * @author abhishekkumarthakur
+ */
+
+public class UserModel {
+
+      private static ArrayList<User> userList = new ArrayList<>();
+
+    // Add a user
+    public static void addUser(User user) {
+        userList.add(user);
+    }
+
+    // Check if a user with the given name exists
+    public static boolean exists(String userName) {
+        for (User user : userList) {
+            if (user.getName().equals(userName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Update user details by User Name
+    public static boolean updateUser(String userName, User updatedUser) {
+        for (int i = 0; i < userList.size(); i++) {
+            User user = userList.get(i);
+            if (user.getName().equals(userName)) {
+                // Update the user details
+                userList.set(i, updatedUser);  // Replace the old user with the updated user
+                return true;
+            }
+        }
+        return false;  // User not found
+    }
+
+    // Get all users
+    public static ArrayList<User> getAllUsers() {
+        return userList;
+    }
+
+    // Delete user by User Name
+    public static boolean deleteUserByName(String userName) {
+        return userList.removeIf(user -> user.getName().equals(userName));
+    }
+    
+}
