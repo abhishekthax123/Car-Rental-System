@@ -4,47 +4,106 @@
  */
 package Model;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Queue;
+import java.util.ArrayList;
 
 public class CarModel {
-    private static ArrayList<Car> carList = new ArrayList<>();
+    private static final int MAX_SIZE = 5;
+    private static Car[] carQueue = new Car[MAX_SIZE];
+    private static int count = 0;
 
-    // Add a car
-    public static void addCar(Car car) {
-        carList.add(car);
+    private static int rentedCarsCount = 0;
+
+    // ================= ADD CAR =================
+    public static boolean addCar(Car car) {
+        if (count >= MAX_SIZE) {
+            return false; // Queue full
+        }
+        carQueue[count++] = car;
+        return true;
     }
 
-    // Check if a car with the given ID exists
-    public static boolean exists(String carId) {
-        for (Car car : carList) {
-            if (car.getCarId().equals(carId)) {
+    // ================= CHECK DUPLICATE =================
+    public static boolean exists(String id) {
+        for (int i = 0; i < count; i++) {
+            if (carQueue[i].getCarId().equals(id)) {
                 return true;
             }
         }
         return false;
     }
 
-    // Update car details by Car ID
-    public static boolean updateCar(String carId, Car updatedCar) {
-        for (int i = 0; i < carList.size(); i++) {
-            Car car = carList.get(i);
-            if (car.getCarId().equals(carId)) {
-                // Update the car details
-                carList.set(i, updatedCar); // Replace the old car with the updated car
+    // ================= DELETE CAR =================
+    public static boolean deleteCarById(String carId) {
+        for (int i = 0; i < count; i++) {
+            if (carQueue[i].getCarId().equals(carId)) {
+
+                // Shift elements left (queue behavior)
+                for (int j = i; j < count - 1; j++) {
+                    carQueue[j] = carQueue[j + 1];
+                }
+
+                carQueue[count - 1] = null;
+                count--;
                 return true;
             }
         }
-        return false; // Car ID not found
+        return false;
     }
 
-    // Get all cars
+    // ================= UPDATE CAR =================
+    public static boolean updateCar(String carId, Car updatedCar) {
+        for (int i = 0; i < count; i++) {
+            if (carQueue[i].getCarId().equals(carId)) {
+                carQueue[i] = updatedCar;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // ================= GET ALL CARS =================
     public static ArrayList<Car> getAllCars() {
-        return carList;
+        ArrayList<Car> list = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            list.add(carQueue[i]);
+        }
+        return list;
     }
 
-    // Delete car by Car ID
-    public static boolean deleteCarById(String carId) {
-        return carList.removeIf(car -> car.getCarId().equals(carId));
+    // ================= QUEUE UTILITIES =================
+    public static int getCurrentSize() {
+        return count;
     }
+
+    public static boolean isFull() {
+        return count == MAX_SIZE;
+    }
+
+    // ================= RENTED CARS COUNT =================
+    public static int getRentedCarsCount() {
+        return rentedCarsCount;
+    }
+
+    public static void incrementRentedCars() {
+        rentedCarsCount++;
+    }
+
+    public static void decrementRentedCars() {
+        if (rentedCarsCount > 0) {
+            rentedCarsCount--; 
+        }
+    }
+
+    // ================= SEARCH BY MODEL =================
+    public static Car getCarByModel(String model) {
+        for (int i = 0; i < count; i++) {
+            if (carQueue[i].getModel().equalsIgnoreCase(model)) {
+                return carQueue[i];
+            }
+        }
+        return null;
+    }
+    
 }

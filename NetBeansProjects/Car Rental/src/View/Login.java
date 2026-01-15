@@ -177,43 +177,49 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      String email = jTextField1.getText();  // Email from text field
+       String email = jTextField1.getText();      // Email from text field
     char[] password = jPasswordField1.getPassword();  // Password from JPasswordField
-
-    // Convert password to String for comparison
     String passwordString = new String(password);
 
     // Check if email or password is empty
     if (email.isEmpty() || passwordString.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Please enter both email and password.");
+        JOptionPane.showMessageDialog(this, "Please enter both email and password.","Error", JOptionPane.ERROR_MESSAGE);
         return;
     }
 
-    // Simply checking if fields are not empty for user login
+    // Email format validation (must end with @gmail.com)
+    if (!email.matches("^[A-Za-z0-9+_.-]+@gmail\\.com$")) {
+        JOptionPane.showMessageDialog(this, "Email must be a valid @gmail.com address.","Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // If valid, show success and open User Panel
     if (!email.isEmpty() && !passwordString.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Login successful as User.");
-        // Proceed to User Dashboard or next screen
-        // openUserDashboard();  // Implement this method for User dashboard redirection
+        // Open User Dashboard (Ensure User.java exists)
+        User userPanel = new User();  // Assuming you have a User class
+        userPanel.setVisible(true);   // Show the User panel
+        this.dispose();               // Close the Login window
     } else {
-        JOptionPane.showMessageDialog(this, "Invalid User credentials or empty fields.");
+        JOptionPane.showMessageDialog(this, "Invalid User credentials or empty fields.","Error", JOptionPane.ERROR_MESSAGE);
     }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-  String email = jTextField1.getText();  // Email from text field
-    
-    // Get the password from JPasswordField (returns char array)
+ String email = jTextField1.getText();  // Email from text field
     char[] password = jPasswordField1.getPassword();  // Password field
     String passwordString = new String(password);  // Convert to String
 
     // Hardcoded credentials for admin
     if (email.equals("admin@gmail.com") && passwordString.equals("admin")) {
         JOptionPane.showMessageDialog(this, "Login successful as Admin.");
-        // Navigate to Admin Dashboard or next screen
-        // openAdminDashboard();  // Implement this method for Admin dashboard redirection
+        // Open Admin Dashboard (Ensure Admin.java is available)
+        Admin adminPanel = new Admin(); // Assuming you have an Admin class
+        adminPanel.setVisible(true);    // Show the Admin panel
+        this.dispose();                 // Close the Login window
     } else {
-        JOptionPane.showMessageDialog(this, "Invalid Admin credentials.");
+        JOptionPane.showMessageDialog(this, "Invalid Admin credentials.","Error", JOptionPane.ERROR_MESSAGE);
     }
 } 
 
@@ -227,7 +233,7 @@ private void jButtonLoginUserActionPerformed(java.awt.event.ActionEvent evt) {
 
     // Check if email or password is empty
     if (email.isEmpty() || passwordString.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Please enter both email and password.");
+        JOptionPane.showMessageDialog(this, "Please enter both email and password.","Error", JOptionPane.ERROR_MESSAGE);
         return;
     }
 
@@ -237,7 +243,7 @@ private void jButtonLoginUserActionPerformed(java.awt.event.ActionEvent evt) {
         // Proceed to User Dashboard or next screen
         // openUserDashboard();  // Implement this method for User dashboard redirection
     } else {
-        JOptionPane.showMessageDialog(this, "Invalid User credentials or empty fields.");
+        JOptionPane.showMessageDialog(this, "Invalid User credentials or empty fields.","Error", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_jButton2ActionPerformed
 
