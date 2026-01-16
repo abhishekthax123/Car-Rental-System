@@ -13,6 +13,8 @@ import Model.User;
 import Model.UserModel;
 import Controller.UserSearchController;
 import Controller.UserSelectionSort;
+import Model.MainUser;
+import Model.MainUserModel;
 
 
 
@@ -139,6 +141,7 @@ public class Admin extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jButton14 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -566,32 +569,22 @@ public class Admin extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         jLabel11.setText("                                                                                                                                                                                             Privacy Terms & Condition");
 
+        jButton14.setBackground(new java.awt.Color(153, 255, 153));
+        jButton14.setText("Undo del");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                                            .addComponent(jLabel5)
-                                            .addGap(50, 50, 50)
-                                            .addComponent(jTextField6))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                                            .addComponent(jLabel1)
-                                            .addGap(76, 76, 76)
-                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jButton8)
@@ -604,9 +597,31 @@ public class Admin extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton11)
                                 .addGap(26, 26, 26)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 934, Short.MAX_VALUE))
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton14)
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                            .addComponent(jLabel6)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addGap(50, 50, 50)
+                                                .addComponent(jTextField6))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addGap(76, 76, 76)
+                                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                        .addGap(0, 279, Short.MAX_VALUE))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 954, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -626,7 +641,9 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton14)
+                .addGap(4, 4, 4)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -639,7 +656,7 @@ public class Admin extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(529, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Manage Users", jPanel6);
@@ -909,43 +926,72 @@ public class Admin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
  
   String id = jTextField1.getText();      
-    String model = jTextField2.getText();   
-    String brand = jTextField3.getText();   
+String model = jTextField2.getText();   
+String brand = jTextField3.getText();   
 
-    // 1. Check if any fields are empty
-    if (id.isEmpty() || model.isEmpty() || brand.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Please fill all fields");
+// 1. Empty check
+if (id.isEmpty() || model.isEmpty() || brand.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "Please fill all fields");
+    return;
+}
+
+// 2. Validate Car ID (must be numeric, positive, non-zero)
+int carIdValue = 0;
+for (int i = 0; i < id.length(); i++) {
+    char c = id.charAt(i);
+    if (c < '0' || c > '9') {
+        JOptionPane.showMessageDialog(
+            this,
+            "Car ID must be a valid positive number",
+            "Error",
+            JOptionPane.ERROR_MESSAGE
+        );
         return;
     }
+    carIdValue = carIdValue * 10 + (c - '0');
+}
 
-    // 2. Validate Car ID (must be positive and non-zero)
-    try {
-        int carId = Integer.parseInt(id);
-        if (carId <= 0) {
-            JOptionPane.showMessageDialog(this, "Car ID cannot be zero or negative", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(this, "Car ID must be a valid number", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
+if (carIdValue <= 0) {
+    JOptionPane.showMessageDialog(
+        this,
+        "Car ID cannot be zero or negative",
+        "Error",
+        JOptionPane.ERROR_MESSAGE
+    );
+    return;
+}
 
-    // 3. Duplicate check
-    if (CarModel.exists(id)) {
-        JOptionPane.showMessageDialog(this, "Car already exists", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
+// 3. Duplicate check
+if (CarModel.exists(id)) {
+    JOptionPane.showMessageDialog(
+        this,
+        "Car already exists",
+        "Error",
+        JOptionPane.ERROR_MESSAGE
+    );
+    return;
+}
 
-    // 4. Add car and handle "Queue Full" scenario
-    if (CarModel.addCar(new Car(id, model, brand))) {
-        // SUCCESS PATH
-        loadCarTable();
-        clearCarFields();
-        JOptionPane.showMessageDialog(this, "Car added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-    } else {
-        // FULL QUEUE PATH
-        JOptionPane.showMessageDialog(this, "Queue is full! Cannot add more cars.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
+// 4. Queue full check handled inside model
+boolean added = CarModel.addCar(new Car(id, model, brand));
+
+if (added) {
+    loadCarTable();
+    clearCarFields();
+    JOptionPane.showMessageDialog(
+        this,
+        "Car added successfully!",
+        "Success",
+        JOptionPane.INFORMATION_MESSAGE
+    );
+} else {
+    JOptionPane.showMessageDialog(
+        this,
+        "Queue is full! Cannot add more cars.",
+        "Queue Full",
+        JOptionPane.ERROR_MESSAGE
+    );
+}
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -1102,42 +1148,46 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
         // Get user input from text fields
-        String userName = jTextField5.getText();    // User Name Text Field
-        String carModel = jTextField6.getText();     // Car Model Text Field
-        String reserveDate = jTextField7.getText(); // Reserve Date Text Field
+String userName = jTextField5.getText();
+String carModel = jTextField6.getText();
+String reserveDate = jTextField7.getText();
 
-        // Check if any field is empty
-        if (userName.isEmpty() || carModel.isEmpty() || reserveDate.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please fill in all fields.");
-            return;
-        }
+// Empty field check
+if (userName.isEmpty() || carModel.isEmpty() || reserveDate.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "Please fill in all fields.");
+    return;
+}
 
-        // Check if the User already exists in the model
-        boolean userExists = UserModel.exists(userName);
-        if (!userExists) {
-            JOptionPane.showMessageDialog(this, "User with name " + userName + " does not exist.");
-            return;
-        }
+// Check if user exists (USE MainUserModel)
+if (!MainUserModel.exists(userName)) {
+    JOptionPane.showMessageDialog(
+        this,
+        "User with name " + userName + " does not exist.",
+        "Error",
+        JOptionPane.ERROR_MESSAGE
+    );
+    return;
+}
 
-        // Create an updated User object with the new details
-        User updatedUser = new User(userName, carModel, reserveDate);
+// Create updated MainUser object
+MainUser updatedUser = new MainUser(userName, carModel, reserveDate);
 
-        // Update user in the model (UserModel class)
-        boolean updateSuccess = UserModel.updateUser(userName, updatedUser);
+// Update user in MainUserModel
+boolean updateSuccess = MainUserModel.updateUser(userName, updatedUser);
 
-        if (updateSuccess) {
-            JOptionPane.showMessageDialog(this, "User details updated successfully.");
-
-            // Reload the table with the updated user data
-            loadUserTable();
-
-            // Clear the fields after updating
-            clearUserFields();
-        } else {
-            JOptionPane.showMessageDialog(this, "Failed to update user details.","Error", JOptionPane.ERROR_MESSAGE);
-        }
+if (updateSuccess) {
+    JOptionPane.showMessageDialog(this, "User details updated successfully.");
+    loadUserTable();
+    clearUserFields();
+} else {
+    JOptionPane.showMessageDialog(
+        this,
+        "Failed to update user details.",
+        "Error",
+        JOptionPane.ERROR_MESSAGE
+    );
+}
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -1236,115 +1286,120 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // Get the user name to delete from the text field or selected row
-        String name = jTextField5.getText(); // Assuming jTextFieldName contains the user's name to delete
+  String name = jTextField5.getText();
 
-        if (name.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter the user's name to delete.");
-            return;
-        }
+if (name.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "Enter name to delete");
+    return;
+}
 
-        // Try deleting the user from the UserModel
-        boolean deleted = UserModel.deleteUserByName(name);
+boolean deleted = MainUserModel.deleteUserByName(name);
 
-        if (deleted) {
-            JOptionPane.showMessageDialog(this, "User deleted successfully.");
-            loadUserTable();  // Reload the user table after deletion
-            clearUserFields(); // Clear input fields
-        } else {
-            JOptionPane.showMessageDialog(this, "User not found.","Error", JOptionPane.ERROR_MESSAGE);
-        }        // TODO add your handling code here:
+if (deleted) {
+    JOptionPane.showMessageDialog(this, "User deleted");
+    loadUserTable();
+} else {
+    if (MainUserModel.isStackFull()) {
+        JOptionPane.showMessageDialog(this, "Undo stack full (5). Cannot delete.");
+    } else {
+        JOptionPane.showMessageDialog(this, "User not found");
+    }
+
+
+}
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         // Get user inputs from text fields
-    String name = jTextField5.getText();        // User Name
-    String carModel = jTextField6.getText();    // Car Model
-    String reserveDate = jTextField7.getText(); // Reserve Date
+  String name = jTextField5.getText();
+String carModel = jTextField6.getText();
+String reserveDate = jTextField7.getText();
 
-    // Check if any fields are empty
-    if (name.isEmpty() || carModel.isEmpty() || reserveDate.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Please fill all fields", "Error", JOptionPane.ERROR_MESSAGE);
+if (name.isEmpty() || carModel.isEmpty() || reserveDate.isEmpty()) {
+    JOptionPane.showMessageDialog(this, "Fill all fields", "Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+// Name must NOT be numeric (manual check)
+boolean isNumber = true;
+for (int i = 0; i < name.length(); i++) {
+    char c = name.charAt(i);
+    if (c < '0' || c > '9') {
+        isNumber = false;
+        break;
+    }
+}
+if (isNumber) {
+    JOptionPane.showMessageDialog(this, "Name cannot be a number", "Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
+
+// Date must NOT contain letters
+for (int i = 0; i < reserveDate.length(); i++) {
+    if (Character.isLetter(reserveDate.charAt(i))) {
+        JOptionPane.showMessageDialog(this, "Invalid date", "Error", JOptionPane.ERROR_MESSAGE);
         return;
     }
+}
 
-    // Name should NOT be a number
-    try {
-        Integer.parseInt(name); // Try to parse the name, if it's a number, it will throw an exception
-        JOptionPane.showMessageDialog(this, "Name cannot be a number", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    } catch (NumberFormatException e) {
-        // OK: name is not a number
-    }
+// Duplicate check
+if (MainUserModel.exists(name)) {
+    JOptionPane.showMessageDialog(this, "User already exists", "Error", JOptionPane.ERROR_MESSAGE);
+    return;
+}
 
-    // Reserve Date should NOT contain alphabets
-    for (int i = 0; i < reserveDate.length(); i++) {
-        char c = reserveDate.charAt(i);
-        if (Character.isLetter(c)) {
-            JOptionPane.showMessageDialog(this, "Reserve date cannot contain alphabets", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-    }
+// ADD USER
+MainUserModel.addUser(new MainUser(name, carModel, reserveDate));
 
-    // Duplicate check - Check if user already exists
-    if (UserModel.exists(name)) {
-        JOptionPane.showMessageDialog(this, "User already exists", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
+loadUserTable();
+clearUserFields();
 
-    // Add user to the UserModel
-    UserModel.addUser(new User(name, carModel, reserveDate));
+JOptionPane.showMessageDialog(this, "User added successfully");
 
-    // After user is added, update rented cars count on Admin Dashboard
-    // Increment rented cars count in the Admin Dashboard (you might need a reference to the Admin frame)
-    updateRentedCarsCount();
 
-    // Reload the user table to reflect the new addition
-    loadUserTable();
-
-    // Clear the input fields after adding
-    clearUserFields();
-
-    // Success message
-    JOptionPane.showMessageDialog(this, "User added successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
 }
 
 // Method to update rented cars count in Admin Dashboard
 private void updateRentedCarsCount() {
-    // Assuming Admin Dashboard is accessible, we update the rented cars count in the Admin Dashboard
-    // Get the current rented cars count from jLabel20 (or wherever it's stored)
-    int rentedCars = Integer.parseInt(jLabel20.getText());  // Assuming jLabel20 is for rented cars count
+    // Get rented cars count from jLabel20 
+String rentedText = jLabel20.getText();
+int rentedCars = 0;
 
-    // Increment rented cars count
-    rentedCars++;
+// Manual String → int conversion
+for (int i = 0; i < rentedText.length(); i++) {
+    char c = rentedText.charAt(i);
+    if (c >= '0' && c <= '9') {
+        rentedCars = rentedCars * 10 + (c - '0');
+    }
+}
 
-    // Update the rented cars label (jLabel20)
-    jLabel20.setText(String.valueOf(rentedCars));
+// Increment rented cars count
+rentedCars++;
 
-    // Calculate available cars (assuming 20 total cars)
-    int availableCars = 5 - rentedCars;
+// Update rented cars label manually
+jLabel20.setText("" + rentedCars);
 
-    // Update the available cars label (jLabel18)
-    jLabel18.setText(String.valueOf(availableCars));
+// Calculate available cars (assuming total cars = 5)
+int availableCars = 5 - rentedCars;
 
-    // Now, update the Admin Dashboard's rented cars label (if Admin Dashboard is accessible)
-    
+// Update available cars label
+jLabel18.setText("" + availableCars);
 }
 
 // Method to load user data into the table
 private void loadUserTable() {
-    DefaultTableModel model = (DefaultTableModel) jTable2.getModel();  // Assuming jTable2 is your JTable for users
-    model.setRowCount(0);  // Clear existing data
+    DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+    model.setRowCount(0);
 
-    // Fetch all users from the UserModel and add them to the table
-    for (User user : UserModel.getAllUsers()) {
+    for (MainUser user : MainUserModel.getAllUsers()) {
         model.addRow(new Object[]{
-            user.getName(),
+            user.getFullName(),
             user.getCarModel(),
             user.getReserveDate(),
-            "Delete"  // This could be a button for deleting users
+            "Delete"
         });
     }
+
+
 }
 
 // Method to clear the input fields after adding
@@ -1512,6 +1567,26 @@ for (Car car : list) {
         
     }//GEN-LAST:event_jComboBox4ActionPerformed
 
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+
+
+    boolean undone = MainUserModel.undoDelete();
+
+    if (undone) {
+        JOptionPane.showMessageDialog(this, "Undo successful");
+        loadUserTable();
+    } else {
+        JOptionPane.showMessageDialog(
+            this,
+            "Nothing to undo",
+            "Undo",
+            JOptionPane.ERROR_MESSAGE
+        );
+    }
+    
+
+    }//GEN-LAST:event_jButton14ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1554,6 +1629,7 @@ for (Car car : list) {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
